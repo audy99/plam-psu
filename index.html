@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชุมนุมสหกรณ์ชาวสวนปาล์มน้ำมันกระบี่ จำกัด</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #22b3c1; /* Woox Theme Color */
+            --secondary-color: #2a2a2a;
+            --light-bg: #f7f7f7;
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            transition: all 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 24px;
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-left: 15px; /* Reduced slightly to fit new menu */
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1598226068205-091a18292850?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            position: relative;
+            margin-bottom: 50px;
+            padding-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .main-button a {
+            font-size: 14px;
+            color: #fff;
+            background-color: var(--primary-color);
+            padding: 12px 30px;
+            display: inline-block;
+            border-radius: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .main-button a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Section Headers */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 15px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .section-heading p {
+            font-size: 15px;
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Cards (Objectives) */
+        .service-item {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .service-item i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .service-item h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-item p {
+            font-weight: 300;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* About Section */
+        .about-content {
+            background-color: var(--light-bg);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .about-image img {
+            border-radius: 20px;
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        /* Process Items (Grid Layout) */
+        .process-item {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .process-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .process-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f0f0f0;
+            line-height: 1;
+            margin-right: 20px;
+            min-width: 60px;
+        }
+
+        .process-item:hover .process-number {
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        .process-content h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .process-content p {
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .process-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            transition: all 0.3s;
+        }
+
+        .process-item:hover .process-icon {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Fundraising Section Styles */
+        .fundraising-box {
+            background-color: #fff;
+            border-left: 5px solid var(--primary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .mission-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mission-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .mission-list li::before {
+            content: "\f00c"; /* Check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+
+        /* Contact Form */
+        .reservation-form {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+            border-radius: 30px 30px 0 0;
+            margin-top: 50px;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 991px) {
+            .hero {
+                height: auto;
+                padding: 150px 0 100px 0;
+                border-bottom-left-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-image {
+                margin-bottom: 30px;
+                height: 300px;
+            }
+            
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 0 0 15px 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .main-button {
+                text-align: center;
+                margin-top: 15px;
+                margin-left: 0 !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .section-heading h2 {
+                font-size: 24px;
+            }
+
+            .about-content {
+                padding: 30px 20px;
+            }
+
+            .process-item {
+                display: block; /* Stack vertically on mobile */
+                padding: 25px;
+            }
+            
+            .process-number {
+                margin-bottom: 10px;
+                font-size: 2.5rem;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            .reservation-form {
+                padding: 40px 0;
+            }
+            
+            .main-button a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-seedling text-success me-2"></i>ชุมนุมสหกรณ์ฯ กระบี่
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link active" href="#home">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">เกี่ยวกับเรา</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#objectives">วัตถุประสงค์</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">วิธีการดำเนินการ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fundraising">แผนระดมทุน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">ติดต่อเรา</a></li>
+                </ul>
+                <div class="main-button ms-3">
+                    <a href="#contact">ติดต่อสอบถาม</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>มั่นคง ถาวร เป็นที่พึ่งของเกษตรกร</h2>
+                    <h1>โรงงานสกัดน้ำมันปาล์ม<br>ชุมนุมสหกรณ์ชาวสวนปาล์มน้ำมันกระบี่</h1>
+                    <p class="text-white fs-5 mt-3">ขนาดกำลังการผลิต 45/90 ตันทะลาย/ชั่วโมง มาตรฐานสากล</p>
+                    <div class="main-button mt-4">
+                        <a href="#about">เรียนรู้เพิ่มเติม</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="about" class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1473862170180-84427c485aca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Palm Factory">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h6 class="text-primary text-uppercase">ความเป็นมา</h6>
+                    <h2>ประวัติและการก่อตั้ง</h2>
+                    <p class="mt-3">
+                        ชุมนุมสหกรณ์ชาวสวนปาล์มน้ำมันกระบี่ จำกัด จดทะเบียนสหกรณ์เมื่อวันที่ 10 กุมภาพันธ์ 2540 ทุนจดทะเบียน 60,000.- บาท และตามมติคณะรัฐมนตรีเห็นชอบในหลักการ โครงการก่อสร้างโรงงานสกัดน้ำมันปาล์ม ตามที่กระทรวงเกษตรและสหกรณ์เสนอ วงเงิน 270 ล้านบาท ตามแผนโครงการเงินกู้เพื่อปรับโครงสร้างภาคเกษตร (ASPL) เมื่อวันที่ 24 ตุลาคม 2543 และคณะรัฐมนตรีรับทราบเมื่อวันที่ 5 กุมภาพันธ์ 2546 โดยได้รับอนุมัติเงินกู้เพื่อปรับโครงสร้างภาคเกษตรจำนวน 270 ล้านบาท เมื่อวันที่ 18 กันยายน 2545 เพื่อดำเนินการก่อสร้างโรงงานสกัดน้ำมันปาล์ม ขนาดกำลังการผลิต 45/90 ตันทะลาย/ชั่วโมง สิ้นสุดโครงการก่อสร้างวันที่ 11 มีนาคม 2547 และได้เปิดดำเนินการรวบรวมผลผลิตปาล์มน้ำมัน จากสหกรณ์สมาชิกเมื่อเดือนมีนาคม 2547 เป็นต้นมา
+                    </p>
+                    <p>
+                        <strong>พื้นที่ดำเนินการ:</strong> 224 ไร่ ในเขตนิคมสหกรณ์อ่าวลึก<br>
+                        <strong>เป้าหมายการรับซื้อ:</strong> ผลปาล์มสดปีละ 480,000 ตัน
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <h3 class="text-primary fw-bold">104+</h3>
+                            <span>ไร่ พื้นที่โรงงาน</span>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-primary fw-bold">90</h3>
+                            <span>ตัน/ชม. กำลังการผลิต</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="objectives" class="container py-5">
+        <div class="section-heading">
+            <h2>วัตถุประสงค์และโครงการต่อเนื่อง</h2>
+            <p>มุ่งพัฒนาอย่างต่อเนื่อง เพื่อความพึงพอใจของลูกค้า และรายได้ที่มั่นคงของเกษตรกร</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="service-item">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <h4>สร้างตลาดและมูลค่าเพิ่ม</h4>
+                    <p>เพื่อสร้างตลาดรองรับผลผลิตปาล์มน้ำมันให้กับเกษตรกรและสร้างมูลค่าเพิ่มของผลผลิตปาล์มน้ำมัน</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="service-item">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <h4>รายได้มั่นคงและราคา</h4>
+                    <p>เพื่อให้เกษตรกรมีรายได้มั่นคงจากการประกอบอาชีพปลูกปาล์มน้ำมันและพยุงราคาปาล์มน้ำมันให้สูงขึ้น</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="service-item">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h4>ความมั่นคงของสหกรณ์</h4>
+                    <p>เพื่อส่งเสริมและสนับสนุนการดำเนินงานในระบบสหกรณ์ให้มีความมั่นคงอย่างถาวรและเป็นที่พึ่งของเกษตรกร</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="service-item">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>โครงการต่อเนื่อง</h4>
+                    <p>
+                        สนับสนุนโรงงานไบโอแก๊ส (ไฟฟ้าจากน้ำเสีย), พลังงานทดแทน, โครงการไบโอดีเซล, จำหน่ายเมล็ดพันธุ์/ต้นกล้าปาล์มพันธุ์ดี, จำหน่ายสินค้าอุปโภคบริโภค, โครงการไฟเบอร์ และพัฒนาเครื่องระเบิดเยื่อไม้ (ร่วมกับ สกว.) </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="process" class="container py-5">
+        <div class="section-heading">
+            <h2>วิธีการดำเนินการ</h2>
+            <p>ขั้นตอนการดำเนินงานและการบริหารจัดการ</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="process-item">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h4>การรับซื้อและผลิต</h4>
+                        <p>รับซื้อผลปาล์มสดจากเกษตรกรรายย่อยและสหกรณ์สมาชิกชุมนุมสหกรณ์ฯ ในเขตจังหวัดกระบี่ และบริเวณใกล้เคียง เป็นผลปาล์มสดปีละ <strong>480,000 ตัน</strong> และผลิตน้ำมันปาล์มดิบ CPO ได้ปีละ <strong>69,000 ตัน</strong></p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="process-item">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h4>ราคาและการชำระเงิน</h4>
+                        <p>กำหนดราคารับซื้อผลปาล์มทะลายสดตามมาตรฐานตลาด ณ โรงงานแปรรูปผลิตภัณฑ์ของชุมนุมสหกรณ์ฯ และชำระเงินค่าสินค้าภายใน <strong>7 วัน</strong> หลังจากได้รับผลผลิตแล้ว</p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="process-item">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h4>การจำหน่าย</h4>
+                        <p>จำหน่ายน้ำมันปาล์มดิบแก่โรงงานกลั่นน้ำมันปาล์ม วันละประมาณ <strong>230-250 ตัน</strong></p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fa-solid fa-truck-droplet"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="process-item">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h4>สนับสนุนยุทธศาสตร์</h4>
+                       <p>สนับสนุนยุทธศาสตร์ปาล์มน้ำมันเพื่อส่งเสริมโครงการต่อเนื่องโรงงานไบโอดีเซล และใช้น้ำเสียจากโรงงานเพื่อผลิตเป็นโครงการไบโอแก๊ส </p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fundraising" class="container py-5">
+        <div class="section-heading">
+            <h2>แผนระดมทุนและภารกิจ</h2>
+            <p>ความมุ่งมั่นในการพัฒนาและสร้างการมีส่วนร่วม</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="fundraising-box">
+                    <h4 class="mb-3 text-primary"><i class="fa-solid fa-coins me-2"></i> แผนระดมทุนเพื่อการถือหุ้น</h4>
+                    <p class="fs-5 mb-0">
+                        ชุมนุมสหกรณ์ฯ จะระดมทุนจากสหกรณ์สมาชิกโดยให้สหกรณ์สมาชิก มีส่วนร่วมในการระดมทุน ตามสัดส่วนของการถือหุ้น ของสหกรณ์สมาชิกโดยกระจายหุ้นให้เกษตรกร ได้ร่วมถือหุ้น เพื่อจัดสรรกำไรสุทธิประจำปีตามหุ้น และปันผลตามส่วนธุรกิจให้กับสหกรณ์สมาชิกและเกษตรกรอย่างเป็นธรรม 
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="service-item bg-white">
+                    <h4 class="mb-4 text-center"><i class="fa-solid fa-bullseye me-2"></i> ภารกิจ (MISSION)</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="mission-list">
+                                <li>เพื่อชำระหนี้กรมส่งเสริมสหกรณ์ จำนวน 270 ล้านบาท</li>
+                                <li>เพื่อใช้เป็นเงินทุนหมุนเวียนในกิจการ]</li>
+                                <li>เพื่อให้เกษตรกรได้มีส่วนร่วมในผลประกอบการ</li>
+                                <li>เพื่อจัดสรรผลประโยชน์จากผลผลิตที่เป็นธรรมให้แก่เกษตรกร</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="mission-list">
+                               <li>เพื่อประสานความร่วมมือระหว่างสหกรณ์สมาชิกให้เกิดความเชื่อมั่นในการดำเนินธุรกิจ </li>
+                                <li>เพื่อปลูกจิตสำนึกที่ดีให้เกษตรกร เล็งเห็นความสำคัญกับโรงงานสกัดฯ ของเกษตรกร </li>
+                                <li>เพื่อประสานความร่วมมือกับสถาบันการเงินของภาครัฐและเอกชนในการสนับสนุนอุตสาหกรรมปาล์มน้ำมันทั้งระบบของเกษตรกร </li>
+                               <li>เพื่อปรับโครงสร้างด้านการผลิต การตลาด การแปรรูปวัตถุดิบ รวมถึงธุรกิจ </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="reservation-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>ติดต่อเรา / สถานที่ตั้ง</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-container mb-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sth!4v1766556339828!5m2!1sen!2sth!6m8!1m7!1sdYz4L6kQ4JaydYwX-xcpWA!2m2!1d8.389384325105738!2d98.86352500895197!3f163.62957437172463!4f-0.6701768282355971!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info-card">
+                        <h4>สำนักงานใหญ่ & โรงงาน</h4>
+                        <p class="mt-3">
+                            <i class="fa-solid fa-location-dot text-primary me-2"></i> 
+                           เลขที่ 39 หมู่ที่ 1 ตำบลคลองยา อำเภออ่าวลึก จังหวัดกระบี่ 81110
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-phone text-primary me-2"></i> 
+                           075 – 656256-7 
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-envelope text-primary me-2"></i> 
+                            ตู้ ป.ณ.10 ปณจ.อ่าวลึก
+                        </p>
+                    </div>
+
+                    <form id="contact-form" action="" method="post" class="mt-4 p-4 bg-white rounded-4 shadow-sm">
+                        <h4 class="mb-3">ส่งข้อความถึงเรา</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <input type="text" name="name" class="form-control" placeholder="ชื่อ-นามสกุล" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset>
+                                    <input type="text" name="phone" class="form-control" placeholder="เบอร์โทรศัพท์" required>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="message" rows="4" class="form-control" placeholder="ข้อความของคุณ..."></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <div class="main-button">
+                                        <a href="#">ส่งข้อความ</a>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2024 ชุมนุมสหกรณ์ชาวสวนปาล์มน้ำมันกระบี่ จำกัด. All rights reserved. 
+                    <br>Design: Based on Woox Travel Template</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Adjust navbar background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.querySelector('.navbar').style.padding = '10px 0';
+            } else {
+                document.querySelector('.navbar').style.padding = '20px 0';
+            }
+        });
+    </script>
+</body>
+</html>
